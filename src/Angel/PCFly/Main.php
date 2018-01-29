@@ -26,11 +26,11 @@ class Main extends PluginBase implements Listener{
                 if($sender->getAllowFlight() == true){
                     $sender->setAllowFlight(false);
                     $sender->setFlying(false);
-                    $sender->sendMessage(TF::RED."Fly disabled!");
+                    $sender->sendMessage(TF::GRAY. "(SkyFlight)" . TF::GREEN:: . "Fly disabled!");
                 } else {
                     $sender->setAllowFlight(true);
                     $sender->setFlying(true);
-                    $sender->sendMessage(TF::GREEN."Fly enabled!");
+                    $sender->sendMessage(TF::GRAY."(SkyFlight)". TF::GREEN . "Fly enabled!");
                 }
             } else {
                 $sender->sendMessage(TF::RED."You dont have permission to use this command");
@@ -44,7 +44,7 @@ class Main extends PluginBase implements Listener{
         if(($p = $ev->getEntity()) instanceof Player){
             
             if($ev->getCause() !== 4 && $p->getAllowFlight() == true){
-                $p->sendPopup(TF::RED . 'Fly disabled');
+                $p->sendPopup(TF::RED . 'Sorry no pvp');
                 $p->setFlying(true);
                 $p->setAllowFlight(false);
             }
